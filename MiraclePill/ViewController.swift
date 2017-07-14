@@ -82,6 +82,8 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     }
 
     @IBAction func stateButtonPressed(_ sender: Any) {
+        statePicker.isHidden = false
+        
     }
 
     
@@ -96,5 +98,11 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return states[row]
     }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        statePickerBtn.setTitle(states[row], for: UIControlState.normal)
+        statePicker.isHidden = true
+    }
+    
 }
 
